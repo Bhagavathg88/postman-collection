@@ -1,0 +1,261 @@
+{
+	"info": {
+		"_postman_id": "1e472100-464f-4916-a352-ce7c904e0024",
+		"name": "Capstone Projects",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "add product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"name\": \"Dell Computer\",\r\n        \"price\" : \"500\",\r\n        \"category\" : \"Computer\",\r\n        \"description\": \"Computer Accessories\"\r\n    },\r\n    {\r\n        \"name\": \"Lenovo Computer\",\r\n        \"price\" : \"600\",\r\n        \"category\" : \"Computer\",\r\n        \"description\": \"Computer Accessories\"\r\n    },\r\n    {\r\n        \"name\": \"Hp Computer\",\r\n        \"price\" : \"400\",\r\n        \"category\" : \"Computer\",\r\n        \"description\": \"Computer Accessories\"\r\n    },\r\n    {\r\n        \"name\": \"Asus Computer\",\r\n        \"price\" : \"800\",\r\n        \"category\" : \"Computer\",\r\n        \"description\": \"Computer Accessories\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8090/products"
+			},
+			"response": []
+		},
+		{
+			"name": "update product",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\": \"Sony Computer\",\r\n        \"price\" : \"600\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8090/product/5"
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve Products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8090/products"
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve Product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8090/product/7/60613"
+			},
+			"response": []
+		},
+		{
+			"name": "Place Order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userID\": \"BHAG00189\",\r\n    \"products\": [\r\n    {\r\n        \"id\": 6,\r\n        \"stocks\" : [\r\n            {\r\n        \"id\": 26,\r\n        \"productId\": 6,\r\n        \"quantity\": 99,\r\n        \"zipcode\": 60613,\r\n        \"inventoryName\": \"Chicago\",\r\n        \"inventoryCode\": \"CHI-60613-1\"\r\n            }\r\n        ],\r\n        \"quantity\": 2\r\n               \r\n    },\r\n    {\r\n         \"id\": 7,\r\n    \r\n    \"stocks\": [\r\n        {\r\n            \"id\": 27,\r\n            \"productId\": 7,\r\n            \"quantity\": 148,\r\n            \"zipcode\": 60613,\r\n            \"inventoryName\": \"Chicago\",\r\n            \"inventoryCode\": \"CHI-60613-1\"\r\n        }\r\n    ],\r\n        \"quantity\": 5\r\n               \r\n    }],\r\n\r\n    \"zipcode\": 60613,\r\n    \"payment\": {\r\n        \"paymentMethod\": \"ACH\",\r\n        \"creditCard\": null,\r\n        \"debitCard\":null,\r\n        \"achDetails\": {\r\n            \"accountNumber\": 1234567890,\r\n            \"routingNumber\": 1234567321,\r\n            \"zipCode\": \"60613\"\r\n        }\r\n    }\r\n   }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8091/orders"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Inventories",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\r\n    \"productId\":1,\r\n    \"quantity\": 100\r\n},\r\n{\r\n    \"productId\":2,\r\n    \"quantity\": 88\r\n},\r\n{\r\n    \"productId\":3,\r\n    \"quantity\": 99\r\n},{\r\n    \"productId\":4,\r\n    \"quantity\": 150\r\n},{\r\n    \"productId\":5,\r\n    \"quantity\": 180\r\n}\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8092/inventories"
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve Inventory",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8092/inventory/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Inventory",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 2,\r\n    \"productId\": 8,\r\n    \"quantity\": 1,\r\n    \"zipcode\": 60613,\r\n    \"inventoryName\": \"Chicago-Inventory\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8092/inventory/8/60613"
+			},
+			"response": []
+		},
+		{
+			"name": "Retrive Inventories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8092/inventories"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Users",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n\r\n{\r\n    \"userId\": \"ABC123\",\r\n    \"firstName\" : \"ABC\",\r\n    \"lastName\" : \"DEF\",\r\n    \"emailId\" : \"abce123@gmail.com\",\r\n    \"address1\" : \"abc 123\",\r\n    \"address2\" : null,\r\n    \"city\" : \"Chicago\",\r\n    \"state\" : \"IL\",\r\n    \"zipCode\" : 60613\r\n},\r\n{\r\n    \"userId\": \"ABC456\",\r\n    \"firstName\" : \"ABC\",\r\n    \"lastName\" : \"DEF\",\r\n    \"emailId\" : \"abce123@gmail.com\",\r\n    \"address1\" : \"abc 123\",\r\n    \"address2\" : null,\r\n    \"city\" : \"Chicago\",\r\n    \"state\" : \"IL\",\r\n    \"zipCode\" : 60613\r\n},{\r\n    \"userId\": \"ABC789\",\r\n    \"firstName\" : \"ABC\",\r\n    \"lastName\" : \"DEF\",\r\n    \"emailId\" : \"abce123@gmail.com\",\r\n    \"address1\" : \"abc 123\",\r\n    \"address2\" : null,\r\n    \"city\" : \"Chicago\",\r\n    \"state\" : \"IL\",\r\n    \"zipCode\" : 60613\r\n},{\r\n    \"userId\": \"ABC478\",\r\n    \"firstName\" : \"ABC\",\r\n    \"lastName\" : \"DEF\",\r\n    \"emailId\" : \"abce123@gmail.com\",\r\n    \"address1\" : \"abc 123\",\r\n    \"address2\" : null,\r\n    \"city\" : \"Chicago\",\r\n    \"state\" : \"IL\",\r\n    \"zipCode\" : 60613\r\n}\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8093/users"
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8093/users"
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve User Orders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8093/userOrders/ABC123"
+			},
+			"response": []
+		},
+		{
+			"name": "Create User Order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"userId\": \"ABC123\",\r\n   \"orderId\":1,\r\n   \"orderTotal\": 130.00,\r\n   \"paymentMethod\" : \"ACH\",\r\n    \"paymentKey\" : \"8537d6ba-648a-4062-ab2e-ddd26e0058ce\",\r\n    \"status\": \"PLACED\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8093/userOrder"
+			},
+			"response": []
+		},
+		{
+			"name": "Update User Order",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"userId\": \"ABC123\",\r\n   \"orderId\":1,\r\n   \"orderTotal\": 130.00,\r\n   \"paymentMethod\" : \"ACH\",\r\n    \"paymentKey\" : \"8537d6ba-648a-4062-ab2e-ddd26e0058ce\",\r\n    \"status\": \"SHIPPED\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8093/userOrder"
+			},
+			"response": []
+		},
+		{
+			"name": "Post Payment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"paymentMethod\": \"ACH\",\r\n        \"creditCard\": null,\r\n        \"debitCard\":null,\r\n        \"achDetails\": {\r\n            \"accountNumber\": 1234567890,\r\n            \"routingNumber\": 1234567321,\r\n            \"zipCode\": \"60613\"\r\n        },\r\n        \"orderId\": 5,\r\n        \"userId\": \"BHAG123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8094/payment"
+			},
+			"response": []
+		},
+		{
+			"name": "Post Payment Crdeit Card",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"paymentMethod\": \"CREDIT_CARD\",\r\n        \"creditCard\": {\r\n            \"creditCardNumber\" : 1234568745614567,\r\n            \"cardHolderName\" : \"BHAGAVATH GANESAN\",\r\n            \"expirationDate\": \"08/18/2028\",\r\n            \"securityCode\": \"945\",\r\n            \"cardType\": \"VISA\",\r\n            \"zipCode\": 60613\r\n        },\r\n        \"debitCard\":null,\r\n        \"achDetails\": null,\r\n        \"orderId\": 6,\r\n        \"userId\": \"BHAG123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8094/payment"
+			},
+			"response": []
+		},
+		{
+			"name": "Post Payment Debit Card",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"paymentMethod\": \"DEBIT_CARD\",\r\n        \"creditCard\": null,\r\n        \"debitCard\": {\r\n            \"debitCardNumber\" : 1234568745614567,\r\n            \"cardHolderName\" : \"BHAGAVATH GANESAN\",\r\n            \"expirationDate\": \"08/18/2028\",\r\n            \"securityCode\": \"945\",\r\n            \"cardType\": \"VISA\",\r\n            \"zipCode\": 60613\r\n        },\r\n        \"achDetails\": null,\r\n        \"orderId\": 9,\r\n        \"userId\": \"BHAG123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8094/payment"
+			},
+			"response": []
+		}
+	]
+}
